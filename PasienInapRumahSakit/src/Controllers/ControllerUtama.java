@@ -565,6 +565,8 @@ public class ControllerUtama implements ActionListener {
             Dokter d3 = getDokterById(M.getTxIdDPR().getText());
             r3.tambahPasienInap(p3, d3);
             r3.getPasienInapById(idp).addDiagnosa(s);
+            App.simpanRuangan(daftarRuangan);
+            JOptionPane.showMessageDialog(null, "Data Disimpan");
         }
 
 //BUTTON KELUAR
