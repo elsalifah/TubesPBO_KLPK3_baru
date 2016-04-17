@@ -32,7 +32,8 @@ public class ControllerUtama implements ActionListener {
     private static ArrayList<Pasien> daftarPasien = new ArrayList<Pasien>();
     private static ArrayList<Ruangan> daftarRuangan = new ArrayList<Ruangan>();
     private Dokter d2;
-    private Object jTable;String s = "";
+    private Object jTable;
+    String s = "";
 
     public ControllerUtama() {
         M = new MENU();
@@ -43,7 +44,6 @@ public class ControllerUtama implements ActionListener {
         String ID;
         Dokter d2;
         daftarRuangan = App.bacaRuangan();
-        
 
     }
 
@@ -553,23 +553,32 @@ public class ControllerUtama implements ActionListener {
             } catch (NullPointerException ae) {
                 JOptionPane.showMessageDialog(null, "ID Dokter Tidak ada");
             }
-        } else if (source.equals(M.getBAddDiag())){
-            s=s+M.getTxAddDiag().getText()+"\n";
+        } //BUTTON ADD DIAGNOSE
+        else if (source.equals(M.getBAddDiag())) {
+            s = s + M.getTxAddDiag().getText() + "\n";
             M.getTxAreaAddDiag().setText("");
-                M.getTxAreaAddDiag().append("Diagnose : "+s);
-        }
-        else if (source.equals(M.getBAddPR())){
+            M.getTxAreaAddDiag().append("Diagnose : " + s);
+        } //BUTTON ADD PASIEN RUANGAN
+        else if (source.equals(M.getBAddPR())) {
             Ruangan r3 = getRuanganByNoRuang(M.getTxNR().getText());
             String idp = M.getTxIdDPR().getText();
-            Pasien p3 = getPasienById(M.getTxIdDPR().getText());
-            Dokter d3 = getDokterById(M.getTxIdDPR().getText());
-            r3.tambahPasienInap(p3, d3);
+            System.out.println(idp);
+            Pasien p3 = getPasienById(M.getTxIdPR().getText());
+            Dokter d3 = getDokterById(M.getTxIdDPR().getText()); 
+            System.out.println(d3.toString());
+            r3.tambahPasienInap(p3,d3);
+            r3.getPasienInapById(idp).getPasien().toString();
             r3.getPasienInapById(idp).addDiagnosa(s);
             App.simpanRuangan(daftarRuangan);
             JOptionPane.showMessageDialog(null, "Data Disimpan");
-        }
-
-//BUTTON KELUAR
+        } else if (source.equals(M.getBcari1())) {
+            String idr = M.getTxCariAddR().getText();
+            Ruangan r3 = getRuanganByNoRuang(idr);
+            for (int i = 0; i < r3.getnPasien(); i++) {
+                M.getTabelVP().setValueAt(r3.getPasienInap(i).getPasien().getIdPasien(), i, 0);
+                M.getTabelVP().setValueAt(r3.getPasienInap(i).getDokter().getIdDokter(), i, 1);
+            }
+        } //BUTTON KELUAR
         else if (source.equals(M.getBKeluar())) {
             System.exit(0);
         }
