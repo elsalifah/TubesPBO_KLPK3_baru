@@ -232,7 +232,8 @@ public class ControllerUtama implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         Object source = e.getSource();
-        //BUTTON DOKTER
+        //BUTTON MENU DOKTER
+        //BUTTON ADD DOKTER
         if (source.equals(M.getBSaveAddD())) {
             try {
                 String idD = M.getTxIdD().getText();
@@ -262,7 +263,8 @@ public class ControllerUtama implements ActionListener {
             } catch (NumberFormatException ae) {
                 JOptionPane.showMessageDialog(null, "Inputan Ada Yang Salah");
             }
-        } else if (source.equals(M.getbCariDelD())) {
+        } //BUTTON CARI ID DOKTER PADA MENU DELETE DOKTER 
+        else if (source.equals(M.getbCariDelD())) {
             try {
                 String idD = M.getTxDelD().getText();
                 Dokter d3 = getDokterById(idD);
@@ -272,7 +274,8 @@ public class ControllerUtama implements ActionListener {
             } catch (NullPointerException ae) {
                 JOptionPane.showMessageDialog(null, "ID Dokter Tidak Ditemukan");
             }
-        } else if (source.equals(M.getbDelD())) {
+        } //BUTTON DELETE DOKTER
+        else if (source.equals(M.getbDelD())) {
             String idD = M.getTxDelD().getText();
             deleteDokterById(idD);
             App.simpanDokter(daftarDokter);
@@ -284,7 +287,8 @@ public class ControllerUtama implements ActionListener {
 //                M.getTabelAddD().setValueAt("", daftarDokter.size()-1, 5);
 //            setViewAddD();
             JOptionPane.showMessageDialog(null, "DATA DENGAN ID '" + idD + "' Telah DiHapus");
-        } else if (source.equals(M.getbCariEdD())) {
+        } //BUTTON CARI DOKTER PADA MENU EDIT DOKTER
+        else if (source.equals(M.getbCariEdD())) {
             try {
                 String idD = M.getIdEditTxtF().getText();
                 Dokter d3 = getDokterById(idD);
@@ -302,7 +306,8 @@ public class ControllerUtama implements ActionListener {
             } catch (NullPointerException ae) {
                 JOptionPane.showMessageDialog(null, "ID Dokter Tidak Ditemukan");
             }
-        } else if (source.equals(M.getbEdD())) {
+        } //BUTTON EDIT DOKTER
+        else if (source.equals(M.getbEdD())) {
             try {
                 String idD = M.getIdEditTxtF().getText();
                 Dokter d3 = getDokterById(idD);
@@ -325,10 +330,12 @@ public class ControllerUtama implements ActionListener {
             } catch (NumberFormatException ae) {
                 JOptionPane.showMessageDialog(null, "Salah Masukan");
             }
-        } else if (source.equals(M.getBReFD1())) {
+        } //BUTTON MUAT ULANG MENU ADD DOKTER
+        else if (source.equals(M.getBReFD1())) {
             daftarDokter = App.bacaDokter();
             setViewAddD();
-        } else if (source.equals(M.getBResetAddD())) {
+        }//BUTTON RESET MENU ADD DOKTER
+        else if (source.equals(M.getBResetAddD())) {
             M.getTxIdD().setText("");
             M.getTxNameD().setText("");
             M.getTxJamD().setText("");
@@ -336,6 +343,7 @@ public class ControllerUtama implements ActionListener {
             M.getCBSpesialisD().setSelectedIndex(0);
 
         } //BUTTON MENU PASIEN
+        //BUTTON SAVE DATA PASIEN
         else if (source.equals(M.getBSaveAddP())) {
             try {
                 String idp = M.getTxAddP().getText();
@@ -366,11 +374,13 @@ public class ControllerUtama implements ActionListener {
             } catch (InputMismatchException ae) {
                 JOptionPane.showMessageDialog(null, "SALAH MASUKAN");
             }
-        } else if (source.equals(M.getBReFP())) {
+        } //BUTTON REFRESH ADD PASIEN
+        else if (source.equals(M.getBReFP())) {
             daftarPasien = App.bacaPasien();
             // System.out.println(daftarPasien.get(0));
             setViewAddP();
-        } else if (source.equals(M.getBCariDelP())) {
+        } // BUTTON CARI PASIEN PADA MENU DELETE PASIEN
+        else if (source.equals(M.getBCariDelP())) {
             try {
                 String idD = M.getTxIdDelP().getText();
                 Pasien p3 = getPasienById(idD);
@@ -380,18 +390,21 @@ public class ControllerUtama implements ActionListener {
             } catch (NullPointerException ae) {
                 JOptionPane.showMessageDialog(null, "ID Pasien Tidak Ditemukan");
             }
-        } else if (source.equals(M.getBDelP())) {
+        } //BUTTON DELETE PASIEN
+        else if (source.equals(M.getBDelP())) {
             String idD = M.getTxIdDelP().getText();
             deletePasienById(idD);
             App.simpanPasien(daftarPasien);
             JOptionPane.showMessageDialog(null, "DATA DENGAN ID '" + idD + "' Telah DiHapus");
-        } else if (source.equals(M.getBResetAddP())) {
+        } //BUTTON RESET PASIEN 
+        else if (source.equals(M.getBResetAddP())) {
             M.getTxAddP().setText("");
             M.getTxNamaP().setText("");
             M.getTxWP().setText("");
             M.getSpinnerUmurP().setValue(1);
             M.getTxAlamatP().setText("");
-        } else if (source.equals(M.getBCariEdP())) {
+        } //BUTTON CARI PADA MENU EDIT PASIEN
+        else if (source.equals(M.getBCariEdP())) {
             try {
                 String idD = M.getTxEdP().getText();
                 Pasien d3 = getPasienById(idD);
@@ -409,7 +422,8 @@ public class ControllerUtama implements ActionListener {
             } catch (NullPointerException ae) {
                 JOptionPane.showMessageDialog(null, "ID Pasien Tidak Ditemukan");
             }
-        } else if (source.equals(M.getBEdP())) {
+        } //BUTTON EDIT PASIEN
+        else if (source.equals(M.getBEdP())) {
             try {
                 String idD = M.getTxEdP().getText();
                 Pasien d3 = getPasienById(idD);
@@ -447,10 +461,12 @@ public class ControllerUtama implements ActionListener {
             } catch (NumberFormatException ae) {
                 JOptionPane.showMessageDialog(null, "SALAH MASUKAN");
             }
-        } else if (source.equals(M.getBrefR1())) {
+        } //BUTTON REFRESH RUANGAN
+        else if (source.equals(M.getBrefR1())) {
             daftarRuangan = App.bacaRuangan();
             setViewAddR();
-        } else if (source.equals(M.getBCariDelR())) {
+        } //BUTTON CARI EDIT RUANGAN
+        else if (source.equals(M.getBCariDelR())) {
             try {
                 String nr = M.getTxDelR().getText();
                 Ruangan r3 = getRuanganByNoRuang(nr);
@@ -459,7 +475,8 @@ public class ControllerUtama implements ActionListener {
             } catch (NullPointerException ae) {
                 JOptionPane.showMessageDialog(null, "No Ruangan tidak Ditemukan");
             }
-        } else if (source.equals(M.getBDelR())) {
+        } //BUTTON DELETE RUANGAN
+        else if (source.equals(M.getBDelR())) {
             try {
                 String nr = M.getTxDelR().getText();
                 Ruangan r3 = getRuanganByNoRuang(nr);
@@ -470,7 +487,8 @@ public class ControllerUtama implements ActionListener {
             } catch (NullPointerException ae) {
                 JOptionPane.showMessageDialog(null, "No Ruangan tidak Ditemukan");
             }
-        } else if (source.equals(M.getBCariEdR())) {
+        } //BUTTON CARI PADA EDIT RUANGAN
+        else if (source.equals(M.getBCariEdR())) {
             try {
                 String nr = M.getTxEdR().getText();
                 Ruangan r3 = getRuanganByNoRuang(nr);
@@ -480,14 +498,16 @@ public class ControllerUtama implements ActionListener {
             } catch (NullPointerException ae) {
                 JOptionPane.showMessageDialog(null, "Data tidak Ditemukan");
             }
-        } else if (source.equals(M.getBEdR())) {
+        } //BUTTON EDIT RUANGAN
+        else if (source.equals(M.getBEdR())) {
             String nr = M.getTxEdR().getText();
             Ruangan r3 = getRuanganByNoRuang(nr);
             r3.setNoRuang(nr);
             r3.setnKapasitas(Integer.parseInt(M.getTxKapAddR1().getText()));
             App.simpanRuangan(daftarRuangan);
             JOptionPane.showMessageDialog(null, "Data Berhasil di Update");
-        } else if (source.equals(M.getBCariSP())) {
+        } //BUTTON CARI RUANGAN DI SET PASIEN
+        else if (source.equals(M.getBCariSP())) {
             try {
                 System.out.println("laaa");
                 String nr = M.getTxNR().getText();
@@ -501,7 +521,8 @@ public class ControllerUtama implements ActionListener {
             } catch (Exception Ae) {
                 JOptionPane.showMessageDialog(null, "No Ruangan tidak ada");
             }
-        } else if (source.equals(M.getBCariSP1())) {
+        } //BUTTON CARI PASIEN PADA SET PASIEN
+        else if (source.equals(M.getBCariSP1())) {
             try {
                 String idp = M.getTxIdPR().getText();
                 Pasien P = getPasienById(idp);
@@ -516,7 +537,8 @@ public class ControllerUtama implements ActionListener {
             } catch (NullPointerException ae) {
                 JOptionPane.showMessageDialog(null, "ID Pasien Tidak ada");
             }
-        } else if (source.equals(M.getBCariSP2())) {
+        } //BUTTON CARI DOKTER PADA SET PASIEN
+        else if (source.equals(M.getBCariSP2())) {
             try {
                 String idd = M.getTxIdDPR().getText();
                 Dokter D = getDokterById(idd);
@@ -529,9 +551,9 @@ public class ControllerUtama implements ActionListener {
                         + "SPESIALIS : " + D.getSpesialis());
             } catch (NullPointerException ae) {
                 JOptionPane.showMessageDialog(null, "ID Dokter Tidak ada");
-//BUTTON KELUAR
             }
-        } else if (source.equals(M.getBKeluar())) {
+        }//BUTTON KELUAR
+        else if (source.equals(M.getBKeluar())) {
             System.exit(0);
         }
 
