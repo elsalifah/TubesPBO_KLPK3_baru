@@ -144,14 +144,28 @@ public class ControllerUtama implements ActionListener {
             M.getTabelAddD().setValueAt(daftarDokter.get(i).getUmur(), i, 3);
             M.getTabelAddD().setValueAt(daftarDokter.get(i).getJamKerja(), i, 4);
             M.getTabelAddD().setValueAt(daftarDokter.get(i).getSpesialis(), i, 5);
-        }
+        }for (int i = daftarDokter.size(); i < 60; i++) {
+            M.getTabelAddD().setValueAt("", i, 0);
+            M.getTabelAddD().setValueAt("", i, 1);
+            M.getTabelAddD().setValueAt("", i, 2);
+            M.getTabelAddD().setValueAt("", i, 3);
+            M.getTabelAddD().setValueAt("", i, 4);
+            M.getTabelAddD().setValueAt("", i, 5);}
     }
+    
+
     public void setViewAddR() {
 
         for (int i = 0; i < daftarRuangan.size(); i++) {
             M.getTabelVR().setValueAt(daftarRuangan.get(i).getNoRuang(), i, 0);
-            M.getTabelVR().setValueAt(daftarRuangan.get(i).getKapasitas(), i, 1);}
+            M.getTabelVR().setValueAt(daftarRuangan.get(i).getNKapasitas(), i, 1);
+        }
+        for (int i = daftarRuangan.size(); i < 60; i++) {
+            M.getTabelVR().setValueAt("", i, 0);
+            M.getTabelVR().setValueAt("", i, 1);
+        }
     }
+
     public void setHasilDelD(Dokter D) {
         M.getTxAreaDelD().setText("");
         M.getTxAreaDelD().append("ID DOKTER : " + D.getIdDokter() + "\n"
@@ -161,7 +175,7 @@ public class ControllerUtama implements ActionListener {
                 + "JAM KERJA : " + D.getJamKerja() + "\n"
                 + "SPESIALIS : " + D.getSpesialis());
     }
-    
+
     public void setHasilDelP(Pasien P) {
         M.getTxAreaDelP().setText("");
         M.getTxAreaDelP().append("ID Pasien : " + P.getIdPasien() + "\n"
@@ -171,11 +185,13 @@ public class ControllerUtama implements ActionListener {
                 + "WALI PASIEN : " + P.getWaliPasien() + "\n"
                 + "ALAMAT : " + P.getAlamat());
     }
-     public void setHasilDelR(Ruangan R) {
+
+    public void setHasilDelR(Ruangan R) {
         M.getTxAreaDelR().setText("");
-        M.getTxAreaDelR().append("NO Ruangan : " + R.getNoRuang()+ "\n"
-                + "KAPASITAS : " + R.getKapasitas());
-     }
+        M.getTxAreaDelR().append("NO Ruangan : " + R.getNoRuang() + "\n"
+                + "KAPASITAS : " + R.getNKapasitas());
+    }
+
     public void setViewAddP() {
         for (int i = 0; i < daftarPasien.size(); i++) {
             M.getTabelAddP().setValueAt(daftarPasien.get(i).getIdPasien(), i, 0);
@@ -184,24 +200,31 @@ public class ControllerUtama implements ActionListener {
             M.getTabelAddP().setValueAt(daftarPasien.get(i).getUmur(), i, 3);
             M.getTabelAddP().setValueAt(daftarPasien.get(i).getWaliPasien(), i, 4);
             M.getTabelAddP().setValueAt(daftarPasien.get(i).getAlamat(), i, 5);
-        }
+        }for (int i = daftarPasien.size(); i < 60; i++) {
+            M.getTabelAddP().setValueAt("", i, 0);
+            M.getTabelAddP().setValueAt("", i, 1);
+            M.getTabelAddP().setValueAt("", i, 2);
+            M.getTabelAddP().setValueAt("", i, 3);
+            M.getTabelAddP().setValueAt("", i, 4);
+            M.getTabelAddP().setValueAt("", i, 5);}
     }
-//private JTable getJTable() {
-//    String[] colName = { "ID Dokter", "Nama ", "Umur", "Jenis Kelamin",
-//            "Umur", "" };
-//    jTable=M.getTabelAddD();
-//    if (jTable == null) {
-//        jTable = new JTable() {
-//            public boolean isCellEditable(int nRow, int nCol) {
-//                return false;
-//            }
-//        };
+
+//    public JTable getJTable() {
+//        String[] colName = {"ID Dokter", "Nama ", "Umur", "Jenis Kelamin",
+//            "Umur", ""};
+//        
+//        if (M.getTabelAddP() == null) {
+//            jTable = new JTable() {
+//                public boolean isCellEditable(int nRow, int nCol) {
+//                    return false;
+//                }
+//            };
+//        }
+//        DefaultTableModel contactTableModel = (DefaultTableModel) M.getTabelAddP().getModel();
+//        contactTableModel.setColumnIdentifiers(colName);
+//        M.getTabelAddP().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+//        return (JTable) jTable;
 //    }
-//    DefaultTableModel contactTableModel = (DefaultTableModel) jTable.getModel();
-//    contactTableModel.setColumnIdentifiers(colName);
-//    jTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-//    return (JTable) jTable;
-//}
     @Override
     public void actionPerformed(ActionEvent e) {
         Object source = e.getSource();
@@ -391,30 +414,30 @@ public class ControllerUtama implements ActionListener {
             }
         } //BUTTON RUANGAN 
         else if (source.equals(M.getBAddR())) {
-            try{
-                
-            
-            String nr= M.getTxAddR().getText();
-            int k = Integer.parseInt(M.getTxKapAddR().getText());
-            Ruangan r= new Ruangan(nr,k);
-            daftarRuangan.add(r);
-            App.simpanRuangan(daftarRuangan);
-            setViewAddR();
-        } catch(NumberFormatException ae){
-            JOptionPane.showMessageDialog(null, "SALAH MASUKAN");
-        }}
-        else if(source.equals(M.getBCariDelR())){
-            try{
-            String nr = M.getTxDelR().getText();
-            Ruangan r3= getRuanganByNoRuang(nr);
-            r3.setNoRuang(nr);
-            setHasilDelR(r3);
-            }catch(NullPointerException ae){
+            try {
+
+                String nr = M.getTxAddR().getText();
+                int k = Integer.parseInt(M.getTxKapAddR().getText());
+                Ruangan r = new Ruangan(nr, k);
+                daftarRuangan.add(r);
+                App.simpanRuangan(daftarRuangan);
+                setViewAddR();
+                System.out.println(getRuangan(0));
+            } catch (NumberFormatException ae) {
+                JOptionPane.showMessageDialog(null, "SALAH MASUKAN");
+            }
+        } else if (source.equals(M.getBCariDelR())) {
+            try {
+                String nr = M.getTxDelR().getText();
+                Ruangan r3 = getRuanganByNoRuang(nr);
+                r3.setNoRuang(nr);
+                setHasilDelR(r3);
+            } catch (NullPointerException ae) {
                 JOptionPane.showMessageDialog(null, "No Ruangan tidak Ditemukan");
             }
-        }
+        } else if (source.equals(M.getBDelR())) {
 
-        //BUTTON KELUAR
+        } //BUTTON KELUAR
         else if (source.equals(M.getBKeluar())) {
             System.exit(0);
         }
