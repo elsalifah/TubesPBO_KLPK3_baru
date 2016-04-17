@@ -11,6 +11,7 @@ import Models.Ruangan;
 import Views.MENU;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import javax.swing.JOptionPane;
@@ -144,15 +145,16 @@ public class ControllerUtama implements ActionListener {
             M.getTabelAddD().setValueAt(daftarDokter.get(i).getUmur(), i, 3);
             M.getTabelAddD().setValueAt(daftarDokter.get(i).getJamKerja(), i, 4);
             M.getTabelAddD().setValueAt(daftarDokter.get(i).getSpesialis(), i, 5);
-        }for (int i = daftarDokter.size(); i < 60; i++) {
+        }
+        for (int i = daftarDokter.size(); i < M.getTabelAddD().getHeight(); i++) {
             M.getTabelAddD().setValueAt("", i, 0);
             M.getTabelAddD().setValueAt("", i, 1);
             M.getTabelAddD().setValueAt("", i, 2);
             M.getTabelAddD().setValueAt("", i, 3);
             M.getTabelAddD().setValueAt("", i, 4);
-            M.getTabelAddD().setValueAt("", i, 5);}
+            M.getTabelAddD().setValueAt("", i, 5);
+        }
     }
-    
 
     public void setViewAddR() {
 
@@ -160,7 +162,7 @@ public class ControllerUtama implements ActionListener {
             M.getTabelVR().setValueAt(daftarRuangan.get(i).getNoRuang(), i, 0);
             M.getTabelVR().setValueAt(daftarRuangan.get(i).getNKapasitas(), i, 1);
         }
-        for (int i = daftarRuangan.size(); i < 60; i++) {
+        for (int i = daftarRuangan.size(); i < M.getTabelVR().getRowHeight(); i++) {
             M.getTabelVR().setValueAt("", i, 0);
             M.getTabelVR().setValueAt("", i, 1);
         }
@@ -200,13 +202,15 @@ public class ControllerUtama implements ActionListener {
             M.getTabelAddP().setValueAt(daftarPasien.get(i).getUmur(), i, 3);
             M.getTabelAddP().setValueAt(daftarPasien.get(i).getWaliPasien(), i, 4);
             M.getTabelAddP().setValueAt(daftarPasien.get(i).getAlamat(), i, 5);
-        }for (int i = daftarPasien.size(); i < 60; i++) {
+        }
+        for (int i = daftarPasien.size(); i < M.getTabelAddP().getHeight(); i++) {
             M.getTabelAddP().setValueAt("", i, 0);
             M.getTabelAddP().setValueAt("", i, 1);
             M.getTabelAddP().setValueAt("", i, 2);
             M.getTabelAddP().setValueAt("", i, 3);
             M.getTabelAddP().setValueAt("", i, 4);
-            M.getTabelAddP().setValueAt("", i, 5);}
+            M.getTabelAddP().setValueAt("", i, 5);
+        }
     }
 
 //    public JTable getJTable() {
@@ -426,6 +430,9 @@ public class ControllerUtama implements ActionListener {
             } catch (NumberFormatException ae) {
                 JOptionPane.showMessageDialog(null, "SALAH MASUKAN");
             }
+        } else if (source.equals(M.getBrefR1())) {
+            daftarRuangan = App.bacaRuangan();
+            setViewAddR();
         } else if (source.equals(M.getBCariDelR())) {
             try {
                 String nr = M.getTxDelR().getText();
@@ -436,12 +443,48 @@ public class ControllerUtama implements ActionListener {
                 JOptionPane.showMessageDialog(null, "No Ruangan tidak Ditemukan");
             }
         } else if (source.equals(M.getBDelR())) {
+            try {
+                String nr = M.getTxDelR().getText();
+                Ruangan r3 = getRuanganByNoRuang(nr);
+                r3.setNoRuang(nr);
+                deleteRuanganByNoRuang(nr);
+                App.simpanRuangan(daftarRuangan);
+                JOptionPane.showMessageDialog(null, "Ruangan dengan NO Ruang '" + nr + "' Telah dihapus");
+            } catch (NullPointerException ae) {
+                JOptionPane.showMessageDialog(null, "No Ruangan tidak Ditemukan");
+            }
+        } else if (source.equals(M.getBCariEdR())){
+            try{
+                String nr = M.getTxEdR().getText();
+                Ruangan r3= getRuanganByNoRuang(nr);
+                r3.setNoRuang(nr);
+                M.getTxAddR1().setText(nr);
+                M.getTxKapAddR1().setText(r3.getNKapasitas()+"");
+            }catch(NullPointerException ae){
+                JOptionPane.showMessageDialog(null, "Data tidak Ditemukan");
+            }
+        }else if (source.equals(M.getBEdR())){
+            String nr = M.getTxEdR().getText();
+            Ruangan r3= getRuanganByNoRuang(nr);
+            r3.setNoRuang(nr);
+            r3.setnKapasitas(Integer.parseInt(M.getTxKapAddR1().getText()));
+            App.simpanRuangan(daftarRuangan);
+           JOptionPane.showMessageDialog(null, "Data Berhasil di Update");
+        }else if (source.equals(M.getBCariSP())){
+            
+        }
 
-        } //BUTTON KELUAR
+        //BUTTON KELUAR
         else if (source.equals(M.getBKeluar())) {
             System.exit(0);
         }
 
+//    }public void mousePressed(MouseEvent e) {
+//        Object source1 = e.getSource();
+//        if (source1.equals(M.getListIDP())) {
+//            int idP=M.getSelectedIdP();
+//            Pelanggan p = model.getPelanggan(idPelanggan);
+//            view.setDetilPelanggan(p.toString());
+//        }
     }
-    // else if (source.equals(M.get))
 }
