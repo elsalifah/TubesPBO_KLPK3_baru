@@ -32,7 +32,7 @@ public class ControllerUtama implements ActionListener {
     private static ArrayList<Pasien> daftarPasien = new ArrayList<Pasien>();
     private static ArrayList<Ruangan> daftarRuangan = new ArrayList<Ruangan>();
     private Dokter d2;
-    private Object jTable;
+    private Object jTable;String s = "";
 
     public ControllerUtama() {
         M = new MENU();
@@ -43,6 +43,7 @@ public class ControllerUtama implements ActionListener {
         String ID;
         Dokter d2;
         daftarRuangan = App.bacaRuangan();
+        
 
     }
 
@@ -552,7 +553,21 @@ public class ControllerUtama implements ActionListener {
             } catch (NullPointerException ae) {
                 JOptionPane.showMessageDialog(null, "ID Dokter Tidak ada");
             }
-        }//BUTTON KELUAR
+        } else if (source.equals(M.getBAddDiag())){
+            s=s+M.getTxAddDiag().getText()+"\n";
+            M.getTxAreaAddDiag().setText("");
+                M.getTxAreaAddDiag().append("Diagnose : "+s);
+        }
+        else if (source.equals(M.getBAddPR())){
+            Ruangan r3 = getRuanganByNoRuang(M.getTxNR().getText());
+            String idp = M.getTxIdDPR().getText();
+            Pasien p3 = getPasienById(M.getTxIdDPR().getText());
+            Dokter d3 = getDokterById(M.getTxIdDPR().getText());
+            r3.tambahPasienInap(p3, d3);
+            r3.getPasienInapById(idp).addDiagnosa(s);
+        }
+
+//BUTTON KELUAR
         else if (source.equals(M.getBKeluar())) {
             System.exit(0);
         }
