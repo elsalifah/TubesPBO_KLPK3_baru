@@ -178,10 +178,12 @@ public class MENU extends javax.swing.JFrame {
         jScrollPane7 = new javax.swing.JScrollPane();
         TabelVD = new javax.swing.JTable();
         BrefR1 = new javax.swing.JButton();
-        jScrollPane13 = new javax.swing.JScrollPane();
-        ListNoR = new javax.swing.JList();
-        jScrollPane14 = new javax.swing.JScrollPane();
-        ListIDP = new javax.swing.JList();
+        txCariAddR = new javax.swing.JTextField();
+        Bcari1 = new javax.swing.JButton();
+        jLabel56 = new javax.swing.JLabel();
+        txCariAddP = new javax.swing.JTextField();
+        BCari2 = new javax.swing.JButton();
+        jLabel57 = new javax.swing.JLabel();
         PANELDELR = new javax.swing.JPanel();
         jLabel28 = new javax.swing.JLabel();
         VDelR = new javax.swing.JPanel();
@@ -215,6 +217,9 @@ public class MENU extends javax.swing.JFrame {
         txAreaDP = new javax.swing.JTextArea();
         jScrollPane12 = new javax.swing.JScrollPane();
         txAreaDD = new javax.swing.JTextArea();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel55 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
         txIdPR = new javax.swing.JTextField();
         jLabel35 = new javax.swing.JLabel();
@@ -224,7 +229,7 @@ public class MENU extends javax.swing.JFrame {
         BAddDiag = new javax.swing.JButton();
         txAddDiag = new javax.swing.JTextField();
         jScrollPane9 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        TxAreaAddDiag = new javax.swing.JTextArea();
         BAddPR = new javax.swing.JButton();
         BCariSP = new javax.swing.JButton();
         BCariSP1 = new javax.swing.JButton();
@@ -258,7 +263,7 @@ public class MENU extends javax.swing.JFrame {
         setForeground(new java.awt.Color(153, 0, 153));
 
         LabelRS.setFont(new java.awt.Font("Minion Pro SmBd", 1, 24)); // NOI18N
-        LabelRS.setText("SISTEM INFORMASI PASIEN RUMAH SAKIT");
+        LabelRS.setText("SISTEM INFORMASI PASIEN INAP RUMAH SAKIT");
 
         PANELUTAMA.setBackground(new java.awt.Color(0, 102, 204));
         PANELUTAMA.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -1653,19 +1658,13 @@ public class MENU extends javax.swing.JFrame {
 
         BrefR1.setText("MUAT ULANG");
 
-        ListNoR.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane13.setViewportView(ListNoR);
+        Bcari1.setText("Cari");
 
-        ListIDP.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane14.setViewportView(ListIDP);
+        jLabel56.setText("No Ruangan");
+
+        BCari2.setText("Cari");
+
+        jLabel57.setText("ID Pasien");
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -1676,30 +1675,56 @@ public class MENU extends javax.swing.JFrame {
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(BrefR1)
                     .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jScrollPane14, javax.swing.GroupLayout.DEFAULT_SIZE, 251, Short.MAX_VALUE)
-                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                                .addComponent(jLabel56, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txCariAddR, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Bcari1))))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(jLabel57, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                        .addComponent(txCariAddP, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(BCari2)))
                 .addContainerGap())
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
-                .addComponent(BrefR1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane13)
-                    .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(jPanel8Layout.createSequentialGroup()
-                            .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addComponent(BrefR1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(Bcari1)
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addGap(1, 1, 1)
+                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(txCariAddR)
+                                    .addComponent(jLabel56))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(19, 19, 19)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(BCari2)
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addGap(1, 1, 1)
+                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(txCariAddP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel57))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
@@ -1717,7 +1742,7 @@ public class MENU extends javax.swing.JFrame {
                     .addGroup(PANELADDRLayout.createSequentialGroup()
                         .addGap(73, 73, 73)
                         .addComponent(jLabel24)))
-                .addContainerGap(247, Short.MAX_VALUE))
+                .addContainerGap(219, Short.MAX_VALUE))
         );
         PANELADDRLayout.setVerticalGroup(
             PANELADDRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1958,30 +1983,52 @@ public class MENU extends javax.swing.JFrame {
         txAreaDD.setRows(5);
         jScrollPane12.setViewportView(txAreaDD);
 
+        jLabel12.setText("Ruangan");
+
+        jLabel25.setText("Pasien");
+
+        jLabel55.setText("Dokter");
+
         javax.swing.GroupLayout VSPLayout = new javax.swing.GroupLayout(VSP);
         VSP.setLayout(VSPLayout);
         VSPLayout.setHorizontalGroup(
             VSPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(VSPLayout.createSequentialGroup()
-                .addGap(0, 25, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, VSPLayout.createSequentialGroup()
                 .addGroup(VSPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(VSPLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel25)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, VSPLayout.createSequentialGroup()
+                        .addComponent(jLabel12)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(VSPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel55)
+                    .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(25, 25, 25))
         );
         VSPLayout.setVerticalGroup(
             VSPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, VSPLayout.createSequentialGroup()
-                .addGroup(VSPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane11, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, VSPLayout.createSequentialGroup()
-                        .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane12, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
-                        .addGap(7, 7, 7)))
-                .addGap(22, 22, 22))
+            .addGroup(VSPLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(VSPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(VSPLayout.createSequentialGroup()
+                        .addGroup(VSPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel12)
+                            .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(VSPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel25)
+                            .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(VSPLayout.createSequentialGroup()
+                        .addComponent(jLabel55)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 45, Short.MAX_VALUE))
         );
 
         jLabel34.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
@@ -1995,9 +2042,9 @@ public class MENU extends javax.swing.JFrame {
 
         BAddDiag.setText("TAMBAH DIAGNOSA");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane9.setViewportView(jTextArea1);
+        TxAreaAddDiag.setColumns(20);
+        TxAreaAddDiag.setRows(5);
+        jScrollPane9.setViewportView(TxAreaAddDiag);
 
         BAddPR.setText("SIMPAN");
 
@@ -2013,11 +2060,8 @@ public class MENU extends javax.swing.JFrame {
             PANESSETPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PANESSETPLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(PANESSETPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(PANESSETPLayout.createSequentialGroup()
-                        .addComponent(BAddDiag)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(BAddPR))
+                .addGroup(PANESSETPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(BAddDiag)
                     .addGroup(PANESSETPLayout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addGroup(PANESSETPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2037,12 +2081,14 @@ public class MENU extends javax.swing.JFrame {
                                             .addComponent(txNR, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                             .addGroup(PANESSETPLayout.createSequentialGroup()
                                 .addGap(2, 2, 2)
-                                .addGroup(PANESSETPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(PANESSETPLayout.createSequentialGroup()
-                                        .addComponent(jLabel37)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(txAddDiag, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                                .addGroup(PANESSETPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(BAddPR)
+                                    .addGroup(PANESSETPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(PANESSETPLayout.createSequentialGroup()
+                                            .addComponent(jLabel37)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(txAddDiag, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))))))))
                 .addGroup(PANESSETPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PANESSETPLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -2055,7 +2101,7 @@ public class MENU extends javax.swing.JFrame {
                             .addComponent(BCariSP2))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(VSP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(81, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(PANESSETPLayout.createSequentialGroup()
                 .addGap(374, 374, 374)
                 .addComponent(jLabel32)
@@ -2097,7 +2143,7 @@ public class MENU extends javax.swing.JFrame {
                                 .addComponent(BAddDiag)
                                 .addComponent(BAddPR))))
                     .addComponent(VSP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(100, Short.MAX_VALUE))
+                .addContainerGap(81, Short.MAX_VALUE))
         );
 
         PANELR.addTab("SET PASIEN, DOKTER, DIAGNOSA", PANESSETP);
@@ -2200,7 +2246,7 @@ public class MENU extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(LabelRS)
-                .addGap(246, 246, 246)
+                .addGap(255, 255, 255)
                 .addComponent(BKeluar)
                 .addGap(128, 128, 128))
             .addGroup(layout.createSequentialGroup()
@@ -2210,11 +2256,15 @@ public class MENU extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(18, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LabelRS)
-                    .addComponent(BKeluar))
-                .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(21, Short.MAX_VALUE)
+                        .addComponent(BKeluar)
+                        .addGap(10, 10, 10))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(LabelRS)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addComponent(PANELUTAMA, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -2836,6 +2886,14 @@ public class MENU extends javax.swing.JFrame {
         this.TxAddR1 = TxAddR1;
     }
 
+    public JTextArea getTxAreaAddDiag() {
+        return TxAreaAddDiag;
+    }
+
+    public void setTxAreaAddDiag(JTextArea TxAreaAddDiag) {
+        this.TxAreaAddDiag = TxAreaAddDiag;
+    }
+
     public JTextField getTxKapAddR1() {
         return TxKapAddR1;
     }
@@ -2845,11 +2903,11 @@ public class MENU extends javax.swing.JFrame {
     }
 
     public JTextArea getjTextArea1() {
-        return jTextArea1;
+        return TxAreaAddDiag;
     }
 
     public void setjTextArea1(JTextArea jTextArea1) {
-        this.jTextArea1 = jTextArea1;
+        this.TxAreaAddDiag = jTextArea1;
     }
 
     public JTextArea getTxAreaDD() {
@@ -3296,6 +3354,9 @@ public class MENU extends javax.swing.JFrame {
         BCariSP.addActionListener(e);
         BCariSP1.addActionListener(e);
         BCariSP2.addActionListener(e);
+        Bcari1.addActionListener(e);
+        BCari2.addActionListener(e);
+        BAddPR.addActionListener(e);
     }
 
     /**
@@ -3307,6 +3368,7 @@ public class MENU extends javax.swing.JFrame {
     private javax.swing.JButton BAddDiag;
     private javax.swing.JButton BAddPR;
     private javax.swing.JButton BAddR;
+    private javax.swing.JButton BCari2;
     private javax.swing.JButton BCariDelP;
     private javax.swing.JButton BCariDelPR;
     private javax.swing.JButton BCariDelR;
@@ -3336,14 +3398,13 @@ public class MENU extends javax.swing.JFrame {
     private javax.swing.JButton BResetDelPR;
     private javax.swing.JButton BSaveAddD;
     private javax.swing.JButton BSaveAddP;
+    private javax.swing.JButton Bcari1;
     private javax.swing.JButton BrefR1;
     private javax.swing.JComboBox CBSpesialisD;
     private javax.swing.JComboBox CBSpesialisD1;
     private javax.swing.JPanel HAPUSPDR;
     private javax.swing.JTextField IdEditTxtF;
     private javax.swing.JLabel LabelRS;
-    private javax.swing.JList ListIDP;
-    private javax.swing.JList ListNoR;
     private javax.swing.JPanel PANELADDDOK;
     private javax.swing.JPanel PANELADDP;
     private javax.swing.JPanel PANELADDR;
@@ -3379,6 +3440,7 @@ public class MENU extends javax.swing.JFrame {
     private javax.swing.JTextField TxAddR1;
     private javax.swing.JTextField TxAlamatP;
     private javax.swing.JTextField TxAlamatP1;
+    private javax.swing.JTextArea TxAreaAddDiag;
     private javax.swing.JTextArea TxAreaDelP;
     private javax.swing.JTextField TxEdP;
     private javax.swing.JTextField TxIdDelP;
@@ -3398,6 +3460,7 @@ public class MENU extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -3411,6 +3474,7 @@ public class MENU extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
@@ -3443,6 +3507,9 @@ public class MENU extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel52;
     private javax.swing.JLabel jLabel53;
     private javax.swing.JLabel jLabel54;
+    private javax.swing.JLabel jLabel55;
+    private javax.swing.JLabel jLabel56;
+    private javax.swing.JLabel jLabel57;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -3467,8 +3534,6 @@ public class MENU extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane12;
-    private javax.swing.JScrollPane jScrollPane13;
-    private javax.swing.JScrollPane jScrollPane14;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -3477,7 +3542,6 @@ public class MENU extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField txAddDiag;
     private javax.swing.JTextField txAddP;
     private javax.swing.JTextField txAddP1;
@@ -3486,6 +3550,8 @@ public class MENU extends javax.swing.JFrame {
     private javax.swing.JTextArea txAreaDR;
     private javax.swing.JTextArea txAreaDelD;
     private javax.swing.JTextArea txAreaDelR;
+    private javax.swing.JTextField txCariAddP;
+    private javax.swing.JTextField txCariAddR;
     private javax.swing.JTextField txDelD;
     private javax.swing.JTextField txDelR;
     private javax.swing.JTextField txEdR;
@@ -3551,30 +3617,42 @@ public class MENU extends javax.swing.JFrame {
         return v.toString();
     }
 
-    public JList getListIDP() {
-        return ListIDP;
-    }
-
-    public void setListIDP(JList ListIDP) {
-        this.ListIDP = ListIDP;
-    }
-
-    public JList getListNoR() {
-        return ListNoR;
-    }
-
-    public void setListNoR(JList ListNoR) {
-        this.ListNoR = ListNoR;
-    }
-      public int getSelectedIdP(){
-        return Integer.parseInt((String)ListIDP.getSelectedValue());
-    }
-        public int getSelectedIdR(){
-        return Integer.parseInt((String)ListNoR.getSelectedValue());
-    }
+    
     public void addAdapter(MouseAdapter e) {
-        ListIDP.addMouseListener(e);
-        ListNoR.addMouseListener(e);
+//        ListIDP.addMouseListener(e);
+//        ListNoR.addMouseListener(e);
+    }
+
+    public JButton getBCari2() {
+        return BCari2;
+    }
+
+    public void setBCari2(JButton BCari2) {
+        this.BCari2 = BCari2;
+    }
+
+    public JButton getBcari1() {
+        return Bcari1;
+    }
+
+    public void setBcari1(JButton Bcari1) {
+        this.Bcari1 = Bcari1;
+    }
+
+    public JTextField getTxCariAddP() {
+        return txCariAddP;
+    }
+
+    public void setTxCariAddP(JTextField txCariAddP) {
+        this.txCariAddP = txCariAddP;
+    }
+
+    public JTextField getTxCariAddR() {
+        return txCariAddR;
+    }
+
+    public void setTxCariAddR(JTextField txCariAddR) {
+        this.txCariAddR = txCariAddR;
     }
 }
 
