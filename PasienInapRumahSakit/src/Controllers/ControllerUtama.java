@@ -236,23 +236,29 @@ public class ControllerUtama implements ActionListener {
         if (source.equals(M.getBSaveAddD())) {
             try {
                 String idD = M.getTxIdD().getText();
-                String nama = M.getTxNameD().getText();
-                char jk = ' ';
-                if (M.getRBGenderL().isSelected()) {
-                    jk = 'L';
-                } else if (M.getRBGenderP().isSelected()) {
-                    jk = 'P';
+                Dokter d3 = getDokterById(idD);
+                if (d3 == null) {
+                    String nama = M.getTxNameD().getText();
+                    char jk = ' ';
+                    if (M.getRBGenderL().isSelected()) {
+                        jk = 'L';
+                    } else if (M.getRBGenderP().isSelected()) {
+                        jk = 'P';
+                    }
+                    String sp = M.getCBSpesialisD().getSelectedItem().toString();
+                    int umur = (int) M.getSpinnerUmur().getValue();
+                    int jam = Integer.parseInt(M.getTxJamD().getText());
+                    Dokter d = new Dokter(idD, sp, jam, nama, jk, umur);
+                    addDokter(d);
+                    App.simpanDokter(daftarDokter);
+                    System.out.println(daftarDokter.get(0));
+                    daftarDokter = App.bacaDokter();
+                    setViewAddD();
+                    JOptionPane.showMessageDialog(null, "Insert Berhasil");
+                } else {
+                    JOptionPane.showMessageDialog(null, "ID Sudah ada");
                 }
-                String sp = M.getCBSpesialisD().getSelectedItem().toString();
-                int umur = (int) M.getSpinnerUmur().getValue();
-                int jam = Integer.parseInt(M.getTxJamD().getText());
-                Dokter d = new Dokter(idD, sp, jam, nama, jk, umur);
-                addDokter(d);
-                App.simpanDokter(daftarDokter);
-                System.out.println(daftarDokter.get(0));
-                daftarDokter = App.bacaDokter();
-                setViewAddD();
-                JOptionPane.showMessageDialog(null, "Insert Berhasil");
+
             } catch (NumberFormatException ae) {
                 JOptionPane.showMessageDialog(null, "Inputan Ada Yang Salah");
             }
@@ -333,22 +339,28 @@ public class ControllerUtama implements ActionListener {
         else if (source.equals(M.getBSaveAddP())) {
             try {
                 String idp = M.getTxAddP().getText();
-                String nama = M.getTxNamaP().getText();
-                char jk = ' ';
-                if (M.getRBGenderL2().isSelected()) {
-                    jk = 'L';
-                } else if (M.getRBGenderP2().isSelected()) {
-                    jk = 'P';
+                Pasien p3 = getPasienById(idp);
+                if (p3 == null) {
+                    String nama = M.getTxNamaP().getText();
+                    char jk = ' ';
+                    if (M.getRBGenderL2().isSelected()) {
+                        jk = 'L';
+                    } else if (M.getRBGenderP2().isSelected()) {
+                        jk = 'P';
+                    }
+                    String wp = M.getTxWP().getText();
+                    int umur = (int) M.getSpinnerUmurP().getValue();
+                    String alamat = M.getTxAlamatP().getText();
+                    Pasien P = new Pasien(nama, jk, umur, idp, wp, alamat);
+                    daftarPasien.add(P);
+                    App.simpanPasien(daftarPasien);
+                    System.out.println(daftarPasien.get(0));
+                    setViewAddP();
+                    JOptionPane.showMessageDialog(null, "Insert Berhasil");
+                } else {
+                    JOptionPane.showMessageDialog(null, "ID Sudah ada");
                 }
-                String wp = M.getTxWP().getText();
-                int umur = (int) M.getSpinnerUmurP().getValue();
-                String alamat = M.getTxAlamatP().getText();
-                Pasien P = new Pasien(nama, jk, umur, idp, wp, alamat);
-                daftarPasien.add(P);
-                App.simpanPasien(daftarPasien);
-                System.out.println(daftarPasien.get(0));
-                setViewAddP();
-                JOptionPane.showMessageDialog(null, "Insert Berhasil");
+
             } catch (NumberFormatException ae) {
                 JOptionPane.showMessageDialog(null, "SALAH MASUKAN");
             } catch (InputMismatchException ae) {
@@ -421,12 +433,18 @@ public class ControllerUtama implements ActionListener {
             try {
 
                 String nr = M.getTxAddR().getText();
+                Ruangan r3 = getRuanganByNoRuang(nr);
+                if(r3==null){
                 int k = Integer.parseInt(M.getTxKapAddR().getText());
                 Ruangan r = new Ruangan(nr, k);
                 daftarRuangan.add(r);
                 App.simpanRuangan(daftarRuangan);
                 setViewAddR();
-                System.out.println(getRuangan(0));
+                JOptionPane.showMessageDialog(null, "Ruangan telah ditambahkan");
+                }
+                else {
+                    JOptionPane.showMessageDialog(null, "No ruangan sudah ada");
+                }
             } catch (NumberFormatException ae) {
                 JOptionPane.showMessageDialog(null, "SALAH MASUKAN");
             }
@@ -453,27 +471,40 @@ public class ControllerUtama implements ActionListener {
             } catch (NullPointerException ae) {
                 JOptionPane.showMessageDialog(null, "No Ruangan tidak Ditemukan");
             }
-        } else if (source.equals(M.getBCariEdR())){
-            try{
+        } else if (source.equals(M.getBCariEdR())) {
+            try {
                 String nr = M.getTxEdR().getText();
-                Ruangan r3= getRuanganByNoRuang(nr);
+                Ruangan r3 = getRuanganByNoRuang(nr);
                 r3.setNoRuang(nr);
                 M.getTxAddR1().setText(nr);
-                M.getTxKapAddR1().setText(r3.getNKapasitas()+"");
-            }catch(NullPointerException ae){
+                M.getTxKapAddR1().setText(r3.getNKapasitas() + "");
+            } catch (NullPointerException ae) {
                 JOptionPane.showMessageDialog(null, "Data tidak Ditemukan");
             }
-        }else if (source.equals(M.getBEdR())){
+        } else if (source.equals(M.getBEdR())) {
             String nr = M.getTxEdR().getText();
-            Ruangan r3= getRuanganByNoRuang(nr);
+            Ruangan r3 = getRuanganByNoRuang(nr);
             r3.setNoRuang(nr);
             r3.setnKapasitas(Integer.parseInt(M.getTxKapAddR1().getText()));
             App.simpanRuangan(daftarRuangan);
-           JOptionPane.showMessageDialog(null, "Data Berhasil di Update");
-        }else if (source.equals(M.getBCariSP())){
-            
+            JOptionPane.showMessageDialog(null, "Data Berhasil di Update");
+        } else if (source.equals(M.getBCariSP())) {
+            try {
+                System.out.println("laaa");
+                String nr = M.getTxNR().getText();
+                Ruangan r3 = getRuanganByNoRuang(nr);
+                r3.setNoRuang(nr);
+                M.getTxAreaDR().setText("");
+                M.getTxAreaDR().append("NO Ruangan : " + r3.getNoRuang() + "\n"
+                        + "Kapasitas Ruangan : " + r3.getNKapasitas() + "\n"
+                        + "Jumlah Pasien Inap : " + r3.getnPasien());
+                if(source.equals(M.getBCariSP1())){
+                    
+                }
+            } catch (Exception Ae) {
+                JOptionPane.showMessageDialog(null, "No Ruangan tidak ada");;
+            }
         }
-
         //BUTTON KELUAR
         else if (source.equals(M.getBKeluar())) {
             System.exit(0);
