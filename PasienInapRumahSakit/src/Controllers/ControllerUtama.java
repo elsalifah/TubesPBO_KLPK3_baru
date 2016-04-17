@@ -434,15 +434,14 @@ public class ControllerUtama implements ActionListener {
 
                 String nr = M.getTxAddR().getText();
                 Ruangan r3 = getRuanganByNoRuang(nr);
-                if(r3==null){
-                int k = Integer.parseInt(M.getTxKapAddR().getText());
-                Ruangan r = new Ruangan(nr, k);
-                daftarRuangan.add(r);
-                App.simpanRuangan(daftarRuangan);
-                setViewAddR();
-                JOptionPane.showMessageDialog(null, "Ruangan telah ditambahkan");
-                }
-                else {
+                if (r3 == null) {
+                    int k = Integer.parseInt(M.getTxKapAddR().getText());
+                    Ruangan r = new Ruangan(nr, k);
+                    daftarRuangan.add(r);
+                    App.simpanRuangan(daftarRuangan);
+                    setViewAddR();
+                    JOptionPane.showMessageDialog(null, "Ruangan telah ditambahkan");
+                } else {
                     JOptionPane.showMessageDialog(null, "No ruangan sudah ada");
                 }
             } catch (NumberFormatException ae) {
@@ -498,15 +497,41 @@ public class ControllerUtama implements ActionListener {
                 M.getTxAreaDR().append("NO Ruangan : " + r3.getNoRuang() + "\n"
                         + "Kapasitas Ruangan : " + r3.getNKapasitas() + "\n"
                         + "Jumlah Pasien Inap : " + r3.getnPasien());
-                if(source.equals(M.getBCariSP1())){
-                    
-                }
+
             } catch (Exception Ae) {
-                JOptionPane.showMessageDialog(null, "No Ruangan tidak ada");;
+                JOptionPane.showMessageDialog(null, "No Ruangan tidak ada");
             }
-        }
-        //BUTTON KELUAR
-        else if (source.equals(M.getBKeluar())) {
+        } else if (source.equals(M.getBCariSP1())) {
+            try {
+                String idp = M.getTxIdPR().getText();
+                Pasien P = getPasienById(idp);
+                P.setIdPasien(idp);
+                M.getTxAreaDD().setText("");
+                M.getTxAreaDD().append("ID Pasien : " + P.getIdPasien() + "\n"
+                        + "NAMA : " + P.getNama() + "\n"
+                        + "JENIS KELAMIN : " + P.getJenisKelamin() + "\n"
+                        + "UMUR : " + P.getUmur() + "\n"
+                        + "WALI PASIEN : " + P.getWaliPasien() + "\n"
+                        + "ALAMAT : " + P.getAlamat());
+            } catch (NullPointerException ae) {
+                JOptionPane.showMessageDialog(null, "ID Pasien Tidak ada");
+            }
+        } else if (source.equals(M.getBCariSP2())) {
+            try {
+                String idd = M.getTxIdDPR().getText();
+                Dokter D = getDokterById(idd);
+                M.getTxAreaDP().setText("");
+                M.getTxAreaDP().append("ID DOKTER : " + D.getIdDokter() + "\n"
+                        + "NAMA : " + D.getNama() + "\n"
+                        + "JENIS KELAMIN : " + D.getJenisKelamin()
+                        + "\nUMUR : " + D.getUmur() + "\n"
+                        + "JAM KERJA : " + D.getJamKerja() + "\n"
+                        + "SPESIALIS : " + D.getSpesialis());
+            } catch (NullPointerException ae) {
+                JOptionPane.showMessageDialog(null, "ID Dokter Tidak ada");
+//BUTTON KELUAR
+            }
+        } else if (source.equals(M.getBKeluar())) {
             System.exit(0);
         }
 
