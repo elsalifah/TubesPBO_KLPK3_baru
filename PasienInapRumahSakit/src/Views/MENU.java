@@ -6,10 +6,13 @@
 package Views;
 
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JSpinner;
@@ -174,6 +177,11 @@ public class MENU extends javax.swing.JFrame {
         TabelVP = new javax.swing.JTable();
         jScrollPane7 = new javax.swing.JScrollPane();
         TabelVD = new javax.swing.JTable();
+        BrefR1 = new javax.swing.JButton();
+        jScrollPane13 = new javax.swing.JScrollPane();
+        ListNoR = new javax.swing.JList();
+        jScrollPane14 = new javax.swing.JScrollPane();
+        ListIDP = new javax.swing.JList();
         PANELDELR = new javax.swing.JPanel();
         jLabel28 = new javax.swing.JLabel();
         VDelR = new javax.swing.JPanel();
@@ -186,7 +194,6 @@ public class MENU extends javax.swing.JFrame {
         BCariDelR = new javax.swing.JButton();
         PANELEDR = new javax.swing.JPanel();
         jLabel30 = new javax.swing.JLabel();
-        VEdR = new javax.swing.JPanel();
         txEdR = new javax.swing.JTextField();
         jLabel31 = new javax.swing.JLabel();
         BCariEdR = new javax.swing.JButton();
@@ -524,8 +531,7 @@ public class MENU extends javax.swing.JFrame {
                 .addGroup(PANELADDDOKLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PANELADDDOKLayout.createSequentialGroup()
                         .addGap(22, 22, 22)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18))
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PANELADDDOKLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel1)
@@ -1645,30 +1651,56 @@ public class MENU extends javax.swing.JFrame {
             TabelVD.getColumnModel().getColumn(0).setResizable(false);
         }
 
+        BrefR1.setText("MUAT ULANG");
+
+        ListNoR.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane13.setViewportView(ListNoR);
+
+        ListIDP.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane14.setViewportView(ListIDP);
+
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 338, Short.MAX_VALUE)
-                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(BrefR1)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jScrollPane14, javax.swing.GroupLayout.DEFAULT_SIZE, 251, Short.MAX_VALUE)
+                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(BrefR1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
-                .addGap(18, 18, 18))
+                    .addComponent(jScrollPane13)
+                    .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel8Layout.createSequentialGroup()
+                            .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout PANELADDRLayout = new javax.swing.GroupLayout(PANELADDR);
@@ -1685,7 +1717,7 @@ public class MENU extends javax.swing.JFrame {
                     .addGroup(PANELADDRLayout.createSequentialGroup()
                         .addGap(73, 73, 73)
                         .addComponent(jLabel24)))
-                .addContainerGap(184, Short.MAX_VALUE))
+                .addContainerGap(247, Short.MAX_VALUE))
         );
         PANELADDRLayout.setVerticalGroup(
             PANELADDRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1696,7 +1728,7 @@ public class MENU extends javax.swing.JFrame {
                 .addGroup(PANELADDRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         PANELR.addTab("TAMBAH DATA RUANGAN", PANELADDR);
@@ -1804,19 +1836,6 @@ public class MENU extends javax.swing.JFrame {
         jLabel30.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel30.setText("EDIT DATA RUANGAN");
 
-        VEdR.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        javax.swing.GroupLayout VEdRLayout = new javax.swing.GroupLayout(VEdR);
-        VEdR.setLayout(VEdRLayout);
-        VEdRLayout.setHorizontalGroup(
-            VEdRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 448, Short.MAX_VALUE)
-        );
-        VEdRLayout.setVerticalGroup(
-            VEdRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 219, Short.MAX_VALUE)
-        );
-
         txEdR.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
         jLabel31.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
@@ -1844,24 +1863,22 @@ public class MENU extends javax.swing.JFrame {
         jPanel16Layout.setHorizontalGroup(
             jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel16Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addContainerGap(27, Short.MAX_VALUE)
+                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel16Layout.createSequentialGroup()
-                        .addComponent(BResetAddR1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(BEdR))
+                        .addComponent(jLabel41, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(TxAddR1, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel16Layout.createSequentialGroup()
-                        .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jLabel54, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel16Layout.createSequentialGroup()
-                                .addComponent(jLabel41, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(48, 48, 48))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel16Layout.createSequentialGroup()
-                                .addComponent(jLabel54, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                        .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(TxKapAddR1, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TxAddR1, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(47, Short.MAX_VALUE))
+                                .addComponent(BResetAddR1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(BEdR))
+                            .addComponent(TxKapAddR1, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
         jPanel16Layout.setVerticalGroup(
             jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1874,11 +1891,11 @@ public class MENU extends javax.swing.JFrame {
                 .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel54, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(TxKapAddR1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BResetAddR1)
-                    .addComponent(BEdR))
-                .addContainerGap(67, Short.MAX_VALUE))
+                    .addComponent(BEdR)
+                    .addComponent(BResetAddR1))
+                .addContainerGap(76, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout PANELEDRLayout = new javax.swing.GroupLayout(PANELEDR);
@@ -1888,37 +1905,33 @@ public class MENU extends javax.swing.JFrame {
             .addGroup(PANELEDRLayout.createSequentialGroup()
                 .addGroup(PANELEDRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PANELEDRLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(VEdR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(47, 47, 47)
+                        .addGap(399, 399, 399)
+                        .addComponent(jLabel30))
+                    .addGroup(PANELEDRLayout.createSequentialGroup()
+                        .addGap(305, 305, 305)
                         .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(PANELEDRLayout.createSequentialGroup()
-                        .addContainerGap()
+                        .addGap(319, 319, 319)
                         .addComponent(jLabel31)
                         .addGap(45, 45, 45)
                         .addComponent(txEdR, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(BCariEdR))
-                    .addGroup(PANELEDRLayout.createSequentialGroup()
-                        .addGap(399, 399, 399)
-                        .addComponent(jLabel30)))
-                .addContainerGap(378, Short.MAX_VALUE))
+                        .addComponent(BCariEdR)))
+                .addContainerGap(487, Short.MAX_VALUE))
         );
         PANELEDRLayout.setVerticalGroup(
             PANELEDRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PANELEDRLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel30)
-                .addGap(34, 34, 34)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
                 .addGroup(PANELEDRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel31)
                     .addComponent(txEdR, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BCariEdR))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(PANELEDRLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(VEdR, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel16, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(92, 92, 92))
+                .addGap(27, 27, 27)
+                .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35))
         );
 
         PANELR.addTab("EDIT DATA RUANGAN", PANELEDR);
@@ -2076,7 +2089,6 @@ public class MENU extends javax.swing.JFrame {
                             .addComponent(txAddDiag, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
                         .addGroup(PANESSETPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(PANESSETPLayout.createSequentialGroup()
                                 .addGap(35, 35, 35)
@@ -2085,7 +2097,7 @@ public class MENU extends javax.swing.JFrame {
                                 .addComponent(BAddDiag)
                                 .addComponent(BAddPR))))
                     .addComponent(VSP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(97, Short.MAX_VALUE))
+                .addContainerGap(100, Short.MAX_VALUE))
         );
 
         PANELR.addTab("SET PASIEN, DOKTER, DIAGNOSA", PANESSETP);
@@ -2474,14 +2486,6 @@ public class MENU extends javax.swing.JFrame {
 //        this.BRefP = BRefP;
 //    }
 //
-//    public JButton getBRefR() {
-//        return BRefR;
-//    }
-//
-//    public void setBRefR(JButton BRefR) {
-//        this.BRefR = BRefR;
-//    }
-
     public JButton getBResetAddD() {
         return BResetAddD;
     }
@@ -2697,7 +2701,6 @@ public class MENU extends javax.swing.JFrame {
 //    public void setPANELVIP(JPanel PANELVIP) {
 //        this.PANELVIP = PANELVIP;
 //    }
-
 //    public JPanel getPANELVIR() {
 //        return PANELVIR;
 //    }
@@ -2705,7 +2708,6 @@ public class MENU extends javax.swing.JFrame {
 //    public void setPANELVIR(JPanel PANELVIR) {
 //        this.PANELVIR = PANELVIR;
 //    }
-
     public JPanel getPANESSETP() {
         return PANESSETP;
     }
@@ -2896,7 +2898,6 @@ public class MENU extends javax.swing.JFrame {
 //    public void setVDP(JPanel VDP) {
 //        this.VDP = VDP;
 //    }
-
     public JTable getTabelAddD() {
         return TabelAddD;
     }
@@ -2904,6 +2905,7 @@ public class MENU extends javax.swing.JFrame {
     public void setTabelAddD(JTable TabelAddD) {
         this.TabelAddD = TabelAddD;
     }
+
     public JTable getTabelAddP() {
         return TabelAddP;
     }
@@ -2919,7 +2921,7 @@ public class MENU extends javax.swing.JFrame {
     public void setTxAreaDelR(JTextArea txAreaDelR) {
         this.txAreaDelR = txAreaDelR;
     }
-   
+
 //    public JPanel getVDR() {
 //        return VDR;
 //    }
@@ -2927,7 +2929,6 @@ public class MENU extends javax.swing.JFrame {
 //    public void setVDR(JPanel VDR) {
 //        this.VDR = VDR;
 //    }
-
     public JPanel getVDelP() {
         return VDelP;
     }
@@ -2967,14 +2968,7 @@ public class MENU extends javax.swing.JFrame {
 //    public void setVEdP(JPanel VEdP) {
 //        this.VEdP = VEdP;
 //    }
-
-    public JPanel getVEdR() {
-        return VEdR;
-    }
-
-    public void setVEdR(JPanel VEdR) {
-        this.VEdR = VEdR;
-    }
+   
 
     public JButton getbCariDelD() {
         return bCariDelD;
@@ -3095,6 +3089,7 @@ public class MENU extends javax.swing.JFrame {
     public void setTxNameD(JTextField txNameD) {
         this.txNameD = txNameD;
     }
+
     public JTextField getTxAddP() {
         return txAddP;
     }
@@ -3134,7 +3129,6 @@ public class MENU extends javax.swing.JFrame {
 //    public void setvED(JPanel vED) {
 //        this.vED = vED;
 //    }
-
     public JTextArea getTxAreaDelD() {
         return txAreaDelD;
     }
@@ -3149,7 +3143,8 @@ public class MENU extends javax.swing.JFrame {
 
     public void setBReFD1(JButton BReFD1) {
         this.BReFD1 = BReFD1;
-    } 
+    }
+
     public JButton getBReFP() {
         return BReFP;
     }
@@ -3157,7 +3152,6 @@ public class MENU extends javax.swing.JFrame {
     public void setBReFP(JButton BReFP) {
         this.BReFP = BReFP;
     }
-    
 
     public JButton getBResetAddD1() {
         return BResetAddD1;
@@ -3258,7 +3252,6 @@ public class MENU extends javax.swing.JFrame {
 //    public JButton getBResetAddP() {
 //       return BResetAddP;
 //    }
-
     public JTextArea getTxAreaDelP() {
         return TxAreaDelP;
     }
@@ -3266,9 +3259,8 @@ public class MENU extends javax.swing.JFrame {
     public void setTxAreaDelP(JTextArea TxAreaDelP) {
         this.TxAreaDelP = TxAreaDelP;
     }
-    
-    
-    public void addListener (ActionListener e){
+
+    public void addListener(ActionListener e) {
         BAddR.addActionListener(e);
         BCariDelP.addActionListener(e);
         BCariDelPR.addActionListener(e);
@@ -3286,7 +3278,7 @@ public class MENU extends javax.swing.JFrame {
         BKeluar.addActionListener(e);
         BNRDelPR.addActionListener(e);
         TxNamaP.addActionListener(e);
-        
+
         BReFP.addActionListener(e);
 //        BRefR.addActionListener(e);
         BResetAddD.addActionListener(e);
@@ -3300,12 +3292,15 @@ public class MENU extends javax.swing.JFrame {
         bDelD.addActionListener(e);
         bEdD.addActionListener(e);
         BReFD1.addActionListener(e);
+        BrefR1.addActionListener(e);
+        BCariSP.addActionListener(e);
+        BCariSP1.addActionListener(e);
+        BCariSP2.addActionListener(e);
     }
 
     /**
      * @param args the command line arguments
      */
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel AddP;
@@ -3341,11 +3336,14 @@ public class MENU extends javax.swing.JFrame {
     private javax.swing.JButton BResetDelPR;
     private javax.swing.JButton BSaveAddD;
     private javax.swing.JButton BSaveAddP;
+    private javax.swing.JButton BrefR1;
     private javax.swing.JComboBox CBSpesialisD;
     private javax.swing.JComboBox CBSpesialisD1;
     private javax.swing.JPanel HAPUSPDR;
     private javax.swing.JTextField IdEditTxtF;
     private javax.swing.JLabel LabelRS;
+    private javax.swing.JList ListIDP;
+    private javax.swing.JList ListNoR;
     private javax.swing.JPanel PANELADDDOK;
     private javax.swing.JPanel PANELADDP;
     private javax.swing.JPanel PANELADDR;
@@ -3392,7 +3390,6 @@ public class MENU extends javax.swing.JFrame {
     private javax.swing.JPanel VDelP;
     private javax.swing.JPanel VDelPR;
     private javax.swing.JPanel VDelR;
-    private javax.swing.JPanel VEdR;
     private javax.swing.JPanel VSP;
     private javax.swing.JButton bCariDelD;
     private javax.swing.JButton bCariEdD;
@@ -3470,6 +3467,8 @@ public class MENU extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane12;
+    private javax.swing.JScrollPane jScrollPane13;
+    private javax.swing.JScrollPane jScrollPane14;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -3534,4 +3533,49 @@ public class MENU extends javax.swing.JFrame {
     public void setRBGenderP1(JRadioButton RBGenderP1) {
         this.RBGenderP1 = RBGenderP1;
     }
+
+    public JButton getBrefR1() {
+        return BrefR1;
+    }
+
+    public void setBrefR1(JButton BrefR1) {
+        this.BrefR1 = BrefR1;
+    }
+    private Object v = null;
+
+    public void setV(Object v) {
+        this.v = v;
+    }
+
+    public String getVa() {
+        return v.toString();
+    }
+
+    public JList getListIDP() {
+        return ListIDP;
+    }
+
+    public void setListIDP(JList ListIDP) {
+        this.ListIDP = ListIDP;
+    }
+
+    public JList getListNoR() {
+        return ListNoR;
+    }
+
+    public void setListNoR(JList ListNoR) {
+        this.ListNoR = ListNoR;
+    }
+      public int getSelectedIdP(){
+        return Integer.parseInt((String)ListIDP.getSelectedValue());
+    }
+        public int getSelectedIdR(){
+        return Integer.parseInt((String)ListNoR.getSelectedValue());
+    }
+    public void addAdapter(MouseAdapter e) {
+        ListIDP.addMouseListener(e);
+        ListNoR.addMouseListener(e);
+    }
 }
+
+
